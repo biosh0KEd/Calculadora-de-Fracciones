@@ -41,8 +41,13 @@ public class Ventana extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String [] r = operacion("Suma");
-                numR.setText(r[1]);
-                denR.setText(r[2]);
+                if(r == null)
+                {
+                    JOptionPane.showMessageDialog(null, "No se pueden las fracciones con denominador 0");
+                } else {
+                    numR.setText(r[1]);
+                    denR.setText(r[2]);
+                }
             }
         });
         
@@ -53,8 +58,13 @@ public class Ventana extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String [] r = operacion("Resta");
-                numR.setText(r[1]);
-                denR.setText(r[2]);
+                if(r == null)
+                {
+                    JOptionPane.showMessageDialog(null, "No se pueden las fracciones con denominador 0");
+                } else {
+                    numR.setText(r[1]);
+                    denR.setText(r[2]);
+                }
             }
         });
         
@@ -65,8 +75,13 @@ public class Ventana extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String [] r = operacion("Multiplicacion");
-                numR.setText(r[1]);
-                denR.setText(r[2]);
+                if(r == null)
+                {
+                    JOptionPane.showMessageDialog(null, "No se pueden las fracciones con denominador 0");
+                } else {
+                    numR.setText(r[1]);
+                    denR.setText(r[2]);
+                }
             }
         });
         
@@ -77,8 +92,13 @@ public class Ventana extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String [] r = operacion("Division");
-                numR.setText(r[1]);
-                denR.setText(r[2]);
+                if(r == null)
+                {
+                    JOptionPane.showMessageDialog(null, "No se pueden las fracciones con denominador 0");
+                } else {
+                    numR.setText(r[1]);
+                    denR.setText(r[2]);
+                }
             }
         });
  
@@ -113,6 +133,10 @@ public class Ventana extends JFrame {
         int de1 = Integer.parseInt(den1.getText());
         int nu2 = Integer.parseInt(num2.getText());
         int de2 = Integer.parseInt(den2.getText());
+        if (de1 == 0 || de2 == 0)
+        {
+            return(null);
+        }
         int nuR = 0, deR = 0;
         String [] resultado;
         resultado = new String [3];
