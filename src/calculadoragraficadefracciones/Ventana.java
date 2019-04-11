@@ -19,9 +19,8 @@ import javax.swing.JTextField;
  * @author Efraín
  */
 public class Ventana extends JFrame {
-    private JButton aprietame;
-    private JTextField TB1;
-    private JTextField TB2;
+    private JButton suma, resta, multiplicacion, division;
+    private JTextField num1, num2, den1, den2, numR, denR;
     public Ventana() {
         inicio();
     }
@@ -33,25 +32,71 @@ public class Ventana extends JFrame {
         this.getContentPane().setBackground(color);
         this.setLayout(null);
         
-        this.aprietame = new JButton("Aprietame");
+        this.suma = new JButton("Suma");
         //this.aprietame.setSize(100, 100);
         //this.aprietame.setLocation(23, 32);
-        this.aprietame.setBounds(50, 0, 150, 50);
-        this.add(this.aprietame);
-        aprietame.addActionListener(new ActionListener(){
+        this.suma.setBounds(800, 50, 150, 50);
+        this.add(this.suma);
+        suma.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Bien");
+            }
+        });
+        
+        this.resta = new JButton("Resta");
+        this.resta.setBounds(800, 150, 150, 50);
+        this.add(this.resta);
+        resta.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Bien");
+            }
+        });
+        
+        this.multiplicacion = new JButton("Multiplicacion");
+        this.multiplicacion.setBounds(800, 250, 150, 50);
+        this.add(this.multiplicacion);
+        multiplicacion.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Bien");
+            }
+        });
+        
+        this.division = new JButton("Division");
+        this.division.setBounds(800, 350, 150, 50);
+        this.add(this.division);
+        division.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, "Bien");
             }
         });
  
+        this.num1 = new JTextField();
+        this.num1.setBounds(50, 200, 70, 50);
+        this.add(this.num1);
         
-        this.TB1 = new JTextField();
-        this.TB1.setBounds(250, 200, 400, 100);
-        this.add(this.TB1);
+        this.den1 = new JTextField();
+        this.den1.setBounds(50, 260, 70, 50);
+        this.add(this.den1);
         
-        this.TB2 = new JTextField();
-        this.TB2.setBounds(250, 500, 400, 100);
-        this.add(this.TB2);
+        this.num2 = new JTextField();
+        this.num2.setBounds(250, 200, 70, 50);
+        this.add(this.num2);
+        
+        this.den2 = new JTextField();
+        this.den2.setBounds(250, 260, 70, 50);
+        this.add(this.den2);
+        
+        this.numR = new JTextField();
+        this.numR.setBounds(450, 200, 70, 50);
+        this.add(this.numR);
+        
+        this.denR = new JTextField();
+        this.denR.setBounds(450, 260, 70, 50);
+        this.add(this.denR);
+        
     }
 }
