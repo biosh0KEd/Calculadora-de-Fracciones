@@ -40,7 +40,9 @@ public class Ventana extends JFrame {
         suma.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Bien");
+                String [] r = operacion("Suma");
+                numR.setText(r[1]);
+                denR.setText(r[2]);
             }
         });
         
@@ -50,7 +52,9 @@ public class Ventana extends JFrame {
         resta.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Bien");
+                String [] r = operacion("Resta");
+                numR.setText(r[1]);
+                denR.setText(r[2]);
             }
         });
         
@@ -60,7 +64,9 @@ public class Ventana extends JFrame {
         multiplicacion.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Bien");
+                String [] r = operacion("Multiplicacion");
+                numR.setText(r[1]);
+                denR.setText(r[2]);
             }
         });
         
@@ -70,7 +76,9 @@ public class Ventana extends JFrame {
         division.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Bien");
+                String [] r = operacion("Division");
+                numR.setText(r[1]);
+                denR.setText(r[2]);
             }
         });
  
@@ -98,5 +106,46 @@ public class Ventana extends JFrame {
         this.denR.setBounds(450, 260, 70, 50);
         this.add(this.denR);
         
+    }
+    
+    public String [] operacion(String op) {
+        int nu1 = Integer.parseInt(num1.getText());
+        int de1 = Integer.parseInt(den1.getText());
+        int nu2 = Integer.parseInt(num2.getText());
+        int de2 = Integer.parseInt(den2.getText());
+        int nuR = 0, deR = 0;
+        String [] resultado;
+        resultado = new String [3];
+        switch(op) {
+            case "Suma":
+                if (de1 == de2) {
+                    nuR = nu1 + nu2;
+                    deR = de1;
+                } else {
+                    nuR = (nu1 * de2) + (nu2 * de1);
+                    deR = de1 * de2;
+                }
+                break;
+            case "Resta":
+                if (de1 == de2) {
+                    nuR = nu1 - nu2;
+                    deR = de1;
+                } else {
+                    nuR = (nu1 * de2) - (nu2 * de1);
+                    deR = de1 * de2;
+                }
+                break;
+            case "Multiplicacion":
+                nuR = nu1 * nu2;
+                deR = de1 * de2;
+                break;
+            case "Division":
+                nuR = nu1 * de2;
+                deR = de1 * nu2;
+                break;
+        }
+        resultado[1] = Integer.toString(nuR);
+        resultado[2] = Integer.toString(deR);
+        return(resultado);
     }
 }
